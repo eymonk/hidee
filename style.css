@@ -1,0 +1,90 @@
+@import 'header/header.css';
+@import 'encryptor/encryptor.css';
+@import 'footer/footer.css';
+@font-face{
+    font-family: roboto-mono;
+    src: url(fonts/RobotoMono-Regular.ttf);
+}
+
+:root{
+    --border-radius: 5px;
+    --accent-color: darkturquoise;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: roboto-mono;
+}
+*:focus{
+    outline: none;
+}
+
+html{
+    font-size: 20px;
+}
+
+body{
+    background: url(img/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.button{
+    font-weight: bold;
+    padding: .5em 1.5em;
+
+    border: none;
+    border-bottom: 3px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+
+    background-color: #000;
+    color: #fff;
+}
+.button:hover{
+    transform: translateY(2px);
+    border-bottom-width: 1px;
+}
+
+.link{
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+}
+.link:hover{
+    color: var(--accent-color);
+}
+
+.container{
+    max-width: 900px;
+    width: 80%;
+    min-height: 100vh;
+    margin: 0 auto;
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    background: radial-gradient(var(--accent-color) -90%, #000e);
+    color: #fff;
+}
+
+@media screen and (max-width: 500px){
+    .container{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    html{
+        font-size: 16px;
+    }
+    .encryptor__button{
+        width: 70%;
+        margin: 0.5em 0;
+    }
+}

@@ -1,0 +1,75 @@
+.encryptor{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.encryptor__notification{
+    margin: 1em;
+    color: transparent;
+}
+
+.encryptor__button-wrapper{
+    padding: 1em 0;
+    width: 80%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.encryptor__input{
+    display: block;
+    resize: none;
+    margin: 0 auto;
+    padding: 1em;
+
+    width: 60%;
+    height: 14em;
+
+    border: 2px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 0 10px 3px var(--accent-color);
+}
+
+.encryptor__button{
+    margin: .5em 1em;
+}
+
+@media screen and (max-width: 900px){
+    .encryptor__input{
+        width: 70%;
+    }
+
+    .encryptor__button{
+        margin: .5em 0.6em;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .encryptor__button{
+        width: 35%;
+        margin: 0.75em 1em;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .encryptor__input{
+        width: 80%;
+    }
+
+    .encryptor__button{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .encryptor__button{
+        width: 70%;
+        margin: 0.5em 0;
+    }
+}
