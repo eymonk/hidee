@@ -1,9 +1,9 @@
-@import 'header/header.css';
-@import 'encryptor/encryptor.css';
-@import 'footer/footer.css';
+@import './css/header.css';
+@import './css/encryptor.css';
+@import './css/footer.css';
 @font-face{
     font-family: roboto-mono;
-    src: url(fonts/RobotoMono-Regular.ttf);
+    src: url('./assets/font/RobotoMono-Regular.ttf');
 }
 
 :root{
@@ -26,7 +26,7 @@ html{
 }
 
 body{
-    background: url(img/background.jpg);
+    background: url('./assets/img/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
