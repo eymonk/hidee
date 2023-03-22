@@ -14,7 +14,7 @@
   };
 
   function getRandomInRange(rangeStart, rangeEnd) {
-    return Math.round(Math.random() * rangeEnd) + rangeStart;
+    return Math.round(Math.random() * (rangeEnd - rangeStart)) + rangeStart;
   }
 
   function notify(message) {
