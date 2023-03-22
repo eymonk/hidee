@@ -52,8 +52,14 @@
       const newSymbols = [];
       const step = getRandomInRange(2, 8);
       const counterInitialValue = getRandomInRange(1, 8);
-      const deceiveNumbers = [getRandomInRange(0, 9), getRandomInRange(0, 9)];
+      const deceiveSymbols = [];
+      const deceiveSymbolsLength = getRandomInRange(11, 30);
       let counter = counterInitialValue;
+
+      for(let i = deceiveSymbolsLength; i > 0; i--) {
+        const randomSymbolIndex = getRandomInRange(0, symbols.length);
+        deceiveSymbols.push(symbols[randomSymbolIndex]);
+      };
 
       function findNewIndex(symbolIndex, step) {
         let newIndex;
@@ -69,7 +75,11 @@
         newSymbols.push(symbols[newIndex]);
       }
 
-      dom.input.value = deceiveNumbers[0] + (counterInitialValue + newSymbols.join('') + step) + deceiveNumbers[1];
+      let newInputValue = `${deceiveSymbolsLength}${newSymbols.join('')}`;
+      for (let i = deceiveSymbolsLength - 1; i > 0; i--) newInputValue = `${newInputValue}${deceiveSymbols[i]}`;
+      newInputValue = `${newInputValue}${counterInitialValue}${step}`
+
+      dom.input.value = newInputValue;
       notify('encrypted');
     } else if (dom.input.value.length > messageLengthMax) notify('too long message');
     else notify('nothing to encrypt');
@@ -77,12 +87,13 @@
 
   function decrypt() {
     if (dom.input.value) {
-      const encryptedSymbols = [...dom.input.value];
-      encryptedSymbols.pop();
-      encryptedSymbols.shift();
       const decryptedSymbols = [];
+      const encryptedSymbols = [...dom.input.value];
+      const deceiveSymbolsLength = parseInt(encryptedSymbols.splice(0, 2).join(''));
       const step = parseInt(encryptedSymbols.pop());
-      let counter = parseInt(encryptedSymbols.shift());
+      let counter = parseInt(encryptedSymbols.pop());
+
+      for(let i = deceiveSymbolsLength - 1; i > 0; i--) encryptedSymbols.pop();
 
       encryptedSymbols.forEach((symbol) => {
         counter = changeCounter(counter, step);
