@@ -2,7 +2,6 @@
   const symbols = Array.from(new Set('tч !0"щэюя#)./1CDdЙO4G£шHI69:>ъь?}RS[\\ВГ^_`~@AеBL&\'(lСMцNPЕ5ЁЖЗQTUpqrVлWдeжXbmуфYZ*о+aйcfgCкDhijkРnЬЭЮosuvEFwxyzАМБДИ{|КЛ2бв3НОПТУ$ы%ФХЦ]ЧШ;<=ЩЪЫЯагзи7ё8мнJKрп,-стх'));
   const lastIndex = symbols.length - 1;
   const counterRange = 100;
-  const messageLengthMax = 2000;
   let notificationTimeout;
   const dom = {
     input: document.querySelector('.encryptor__input'),
@@ -47,7 +46,7 @@
   }
 
   function encrypt() {
-    if (dom.input.value && dom.input.value.length <= messageLengthMax) {
+    if (dom.input.value) {
       const inputSymbols = dom.input.value.split('');
       const newSymbols = [];
       const step = getRandomInRange(2, 8);
@@ -81,8 +80,7 @@
 
       dom.input.value = newInputValue;
       notify('encrypted');
-    } else if (dom.input.value.length > messageLengthMax) notify('too long message');
-    else notify('nothing to encrypt');
+    } else notify('nothing to encrypt');
   }
 
   function decrypt() {
