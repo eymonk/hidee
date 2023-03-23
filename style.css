@@ -3,36 +3,36 @@
 @import './css/footer.css';
 @import './css/queries.css';
 
-@font-face{
+@font-face {
     font-family: roboto-mono;
     src: url('./assets/font/RobotoMono-Regular.ttf');
 }
 
-:root{
+:root {
     --border-radius: 5px;
-    --accent-color: darkturquoise;
+    --accent-color: #00afb2;
 }
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: roboto-mono;
 }
-*:focus{
+*:focus {
     outline: none;
 }
 
-html{
+html {
     font-size: 20px;
 }
 
-body{
+body {
     background: url('./assets/img/background.jpg'), no-repeat;
     background-size: cover;
 }
 
-.container{
+.container {
     width: 100%;
     min-height: 100vh;
     margin: 0 auto;
@@ -47,7 +47,7 @@ body{
     color: #fff;
 }
 
-.button{
+.button {
     font-weight: bold;
     padding: .5em 1.5em;
 
@@ -58,24 +58,26 @@ body{
 
     background-color: #000;
     color: #fff;
+    transition: transform 150ms;
 }
-.button:hover{
+.button:hover {
     transform: translateY(2px);
     border-bottom-width: 1px;
 }
 
-.link{
+.link {
     padding: 10px;
     font-size: 1rem;
     color: #fff;
     text-decoration: none;
     border-radius: var(--border-radius);
+    transition: background-color 150ms;
 }
-.link:hover{
+.link:hover  {
     background-color: #fff4;
 }
 
 .icon {
-    width: 20px;
+    width: 1rem;
 }
 
