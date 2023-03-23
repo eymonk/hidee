@@ -1,10 +1,11 @@
 .footer{
     font-size: .5rem;
-    padding: 1em;
 
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background: #0007;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
 }

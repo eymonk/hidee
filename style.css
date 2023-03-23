@@ -28,9 +28,23 @@ html{
 }
 
 body{
-    background: url('./assets/img/background.jpg');
+    background: url('./assets/img/background.jpg'), no-repeat;
     background-size: cover;
-    background-repeat: no-repeat;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    background: radial-gradient(var(--accent-color) -90%, #000e);
+    color: #fff;
 }
 
 .button{
@@ -51,25 +65,17 @@ body{
 }
 
 .link{
+    padding: 10px;
     font-size: 1rem;
     color: #fff;
     text-decoration: none;
+    border-radius: var(--border-radius);
 }
 .link:hover{
-    color: var(--accent-color);
+    background-color: #fff4;
 }
 
-.container{
-    width: 100%;
-    min-height: 100vh;
-    margin: 0 auto;
-    
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
-    background: radial-gradient(var(--accent-color) -90%, #000e);
-    color: #fff;
+.icon {
+    width: 20px;
 }
+
