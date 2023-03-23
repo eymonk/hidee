@@ -74,11 +74,11 @@
         newSymbols.push(symbols[newIndex]);
       }
 
-      let newInputValue = `${deceiveSymbolsLength}${newSymbols.join('')}`;
-      for (let i = deceiveSymbolsLength - 1; i > 0; i--) newInputValue = `${newInputValue}${deceiveSymbols[i]}`;
-      newInputValue = `${newInputValue}${counterInitialValue}${step}`
+      let encipheredText = newSymbols.join('');
+      for (let i = deceiveSymbolsLength - 1; i > 0; i--) encipheredText = `${encipheredText}${deceiveSymbols[i]}`;
+      encipheredText = `${encipheredText}${counterInitialValue}${step}${deceiveSymbolsLength}`
 
-      dom.input.value = newInputValue;
+      dom.input.value = encipheredText;
       notify('encrypted');
     } else notify('nothing to encrypt');
   }
@@ -87,7 +87,7 @@
     if (dom.input.value) {
       const decryptedSymbols = [];
       const encryptedSymbols = [...dom.input.value];
-      const deceiveSymbolsLength = parseInt(encryptedSymbols.splice(0, 2).join(''));
+      const deceiveSymbolsLength = parseInt([encryptedSymbols.pop(), encryptedSymbols.pop()].reverse().join(''));
       const step = parseInt(encryptedSymbols.pop());
       let counter = parseInt(encryptedSymbols.pop());
 
