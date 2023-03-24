@@ -124,19 +124,21 @@
     } else notify('nothing to decrypt');
   }
 
-  function changeLang() {
-    const currentLang = dom.btnLang.dataset.lang;
-
-    if (currentLang === 'ru') {
-      dom.btnEncrypt.textContent = 'зашифровать';
-      dom.btnDecrypt.textContent = 'расшифровать';
-      dom.btnCopy.textContent = 'копировать';
-      dom.btnClear.textContent = 'очистить';
-    } else {
+  function setLang(lang) {
+    if (lang === 'en') {
       dom.btnEncrypt.textContent = 'encrypt';
       dom.btnDecrypt.textContent = 'decrypt';
       dom.btnCopy.textContent = 'copy';
       dom.btnClear.textContent = 'clear';
+      dom.btnLang.dataset.lang = 'en';
+      localStorage.setItem('lang', 'en');
+    } else {
+      dom.btnEncrypt.textContent = 'зашифровать';
+      dom.btnDecrypt.textContent = 'расшифровать';
+      dom.btnCopy.textContent = 'копировать';
+      dom.btnClear.textContent = 'очистить';
+      dom.btnLang.dataset.lang = 'ru';
+      localStorage.setItem('lang', 'ru');
     }
   }
 
@@ -144,8 +146,14 @@
   dom.btnDecrypt.addEventListener('click', decrypt);
   dom.btnCopy.addEventListener('click', copy);
   dom.btnClear.addEventListener('click', clear);
-  dom.btnLang.addEventListener('click', changeLang);
+  dom.btnLang.addEventListener('click', () => {
+    const newLang = dom.btnLang.dataset.lang === 'en' ? 'ru' : 'en';
+    setLang(newLang);
+  });
 
   dom.input.value = `Hello!\n   This is very simple way to encrypt your conversation with someone. All you need is just paste your message here and press "encrypt" button, then "copy" button and then send result to your interlocutor, who in it's turn goes here and decrypts the message.\n   The key thing here is that nobody knows this site, so there is practically no chances that your messages will be decrypted.\n   I understand that it's very far from a robust strategy, but it is what it is)\n   Good luck!`;
   notify('qq)');
+
+  const lang = localStorage.getItem('lang');
+  if (lang) setLang(lang);
 }());

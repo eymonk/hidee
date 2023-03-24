@@ -49,7 +49,7 @@ body {
 }
 
 .btn {
-    font-weight: bold;
+    font-size: 15px;
     padding: .5em 1.5em;
 
     border: none;
