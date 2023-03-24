@@ -29,9 +29,12 @@
 
   function copy() {
     const text = dom.input.value;
-    navigator.clipboard.writeText(text);
-    dom.input.focus();
-    notify('copied');
+    navigator.clipboard.writeText(text)
+        .then(() => {
+          dom.input.focus();
+          notify('copied');
+        })
+        .catch(err => { if(err) notify(`couldn't copy, sorry...`) });
   }
 
 
@@ -85,7 +88,7 @@
       for(let i = deceiveSymbolsLength; i > 0; i--) {
         const randomSymbolIndex = getRandomInRange(0, symbols.length);
         deceiveSymbols.push(symbols[randomSymbolIndex]);
-      };
+      }
 
       const newSymbols = reindex(inputSymbols, counter, step);
       let encipheredText = newSymbols.join('');
@@ -126,7 +129,6 @@
   dom.copyBtn.addEventListener('click', copy);
   dom.clearBtn.addEventListener('click', clear);
 
-  const messageToUser = `Hello!\n   This is very simple way to encrypt your conversation with someone. All you need is just paste your message here and press "encrypt" button, then "copy" button and then send result to your interlocutor, who in it's turn goes here and decrypts the message.\n   The key thing here is that nobody knows this site, so there is practically no chances that your messages will be decrypted.\n   I understand that it's very far from a robust strategy, but it is what it is)\n   Good luck!`;
-  dom.input.value = messageToUser;
+  dom.input.value = `Hello!\n   This is very simple way to encrypt your conversation with someone. All you need is just paste your message here and press "encrypt" button, then "copy" button and then send result to your interlocutor, who in it's turn goes here and decrypts the message.\n   The key thing here is that nobody knows this site, so there is practically no chances that your messages will be decrypted.\n   I understand that it's very far from a robust strategy, but it is what it is)\n   Good luck!`;
   notify('qq)');
 }());

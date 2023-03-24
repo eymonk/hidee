@@ -17,7 +17,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: roboto-mono;
+    font-family: roboto-mono, 'Courier New', monospace;
 }
 *:focus {
     outline: none;
