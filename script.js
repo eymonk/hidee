@@ -23,7 +23,7 @@
     dom.notification.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent-color');
     notificationTimeout = setTimeout(() => {
       dom.notification.innerText = '';
-    }, 1800);
+    }, 2500);
   }
 
 
@@ -125,5 +125,8 @@
   dom.decryptBtn.addEventListener('click', decrypt);
   dom.copyBtn.addEventListener('click', copy);
   dom.clearBtn.addEventListener('click', clear);
+
+  const messageToUser = `Hello!\n   This is very simple way to encrypt your conversation with someone. All you need is just paste your message here and press "encrypt" button, then "copy" button and then send result to your interlocutor, who in it's turn goes here and decrypts the message.\n   The key thing here is that nobody knows this site, so there is practically no chances that your messages will be decrypted.\n   I understand that it's very far from a robust strategy, but it is what it is)\n   Good luck!`;
+  dom.input.value = messageToUser;
   notify('qq)');
 }());
