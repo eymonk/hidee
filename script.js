@@ -9,7 +9,13 @@
     btnCopy: document.querySelector('.encryptor__btn_copy'),
     btnClear: document.querySelector('.encryptor__btn_clear'),
     btnLang: document.querySelector('.footer__btn_lang'),
+    headerMotto: document.querySelector('.header__motto'),
   };
+
+  const userMessages = {
+    en: `Hello!\n   This is very simple way to encrypt your conversation with someone. All you need is just paste your message here and press "encrypt" button, then "copy" button and then send result to your interlocutor, who in it's turn goes here too and decrypts the message.\n   The key thing here is that nobody knows this site, so there is practically no chances that your messages will be decrypted.\n   I understand that it's very far from a robust strategy, but it is what it is)\n   Good luck!`,
+    ru: `Привет!\n   Это очень простой способ зашифровать твою беседу с кем-либо. Всё что нужно - вставить сюда твоё сообщение и нажать кнопку "зашифровать", затем кнопку "скопировать" и затем отправить результат твоему собеседнику, который в свою очередь тоже придёт сюда и расшифрует сообщение.\n   Ключевой момент в том, что никто не знает этот сайт, так что практически нет шансов, что твои сообщения будут расшифрованы.\n   Я понимаю, что это очень далеко от надёжной стратегии, но как есть)\n   Удачи!`,
+  }
 
 
   function getRandomInRange(rangeStart, rangeEnd) {
@@ -32,17 +38,19 @@
     const text = dom.input.value;
     navigator.clipboard.writeText(text)
         .then(() => {
+          const message = localStorage.getItem('lang') === 'en' ? 'copied' : 'скопировано';
           dom.input.focus();
-          notify('copied');
+          notify(message);
         })
         .catch(err => { if(err) notify(`couldn't copy, sorry...`) });
   }
 
 
   function clear() {
+    const message = localStorage.getItem('lang') === 'en' ? 'cleared' : 'очищено';
     dom.input.value = '';
     dom.input.focus();
-    notify('cleared');
+    notify(message);
   }
 
 
@@ -97,8 +105,14 @@
       encipheredText = `${encipheredText}${counterInitialValue}${step}${deceiveSymbolsLength}`
 
       dom.input.value = encipheredText;
-      notify('encrypted');
-    } else notify('nothing to encrypt');
+
+
+      const message = localStorage.getItem('lang') === 'en' ? 'encrypted' : 'зашифровано';
+      notify(message);
+    } else {
+      const message = localStorage.getItem('lang') === 'en' ? 'nothing to encrypt' : 'нечего зашифровывать';
+      notify(message);
+    }
   }
 
 
@@ -120,8 +134,13 @@
       });
 
       dom.input.value = decryptedSymbols.join('');
-      notify('decrypted');
-    } else notify('nothing to decrypt');
+
+      const message = localStorage.getItem('lang') === 'en' ? 'decrypted' : 'расшифровано';
+      notify(message);
+    } else {
+      const message = localStorage.getItem('lang') === 'en' ? 'nothing to decrypt' : 'нечего расшифровывать';
+      notify(message);
+    }
   }
 
   function setLang(lang) {
@@ -130,6 +149,7 @@
       dom.btnDecrypt.textContent = 'decrypt';
       dom.btnCopy.textContent = 'copy';
       dom.btnClear.textContent = 'clear';
+      dom.headerMotto.textContent = 'whisper loudly';
       dom.btnLang.dataset.lang = 'en';
       localStorage.setItem('lang', 'en');
     } else {
@@ -137,9 +157,12 @@
       dom.btnDecrypt.textContent = 'расшифровать';
       dom.btnCopy.textContent = 'копировать';
       dom.btnClear.textContent = 'очистить';
+      dom.headerMotto.textContent = 'шептать громко';
       dom.btnLang.dataset.lang = 'ru';
       localStorage.setItem('lang', 'ru');
     }
+
+    if (dom.input.textContent === userMessages.en || dom.input.textContent === userMessages.ru) dom.input.textContent = userMessages[lang];
   }
 
   dom.btnEncrypt.addEventListener('click', encrypt);
@@ -151,9 +174,9 @@
     setLang(newLang);
   });
 
-  dom.input.value = `Hello!\n   This is very simple way to encrypt your conversation with someone. All you need is just paste your message here and press "encrypt" button, then "copy" button and then send result to your interlocutor, who in it's turn goes here and decrypts the message.\n   The key thing here is that nobody knows this site, so there is practically no chances that your messages will be decrypted.\n   I understand that it's very far from a robust strategy, but it is what it is)\n   Good luck!`;
-  notify('qq)');
-
   const lang = localStorage.getItem('lang');
-  if (lang) setLang(lang);
+  if (lang) {
+    setLang(lang);
+    dom.input.value = userMessages[lang];
+  };
 }());
