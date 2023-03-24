@@ -4,10 +4,11 @@
   const dom = {
     input: document.querySelector('.encryptor__input'),
     notification: document.querySelector('.encryptor__notification'),
-    encryptBtn: document.querySelector('.encryptor__btn_encrypt'),
-    decryptBtn: document.querySelector('.encryptor__btn_decrypt'),
-    copyBtn: document.querySelector('.encryptor__btn_copy'),
-    clearBtn: document.querySelector('.encryptor__btn_clear'),
+    btnEncrypt: document.querySelector('.encryptor__btn_encrypt'),
+    btnDecrypt: document.querySelector('.encryptor__btn_decrypt'),
+    btnCopy: document.querySelector('.encryptor__btn_copy'),
+    btnClear: document.querySelector('.encryptor__btn_clear'),
+    btnLang: document.querySelector('.footer__btn_lang'),
   };
 
 
@@ -123,11 +124,27 @@
     } else notify('nothing to decrypt');
   }
 
+  function changeLang() {
+    const currentLang = dom.btnLang.dataset.lang;
 
-  dom.encryptBtn.addEventListener('click', encrypt);
-  dom.decryptBtn.addEventListener('click', decrypt);
-  dom.copyBtn.addEventListener('click', copy);
-  dom.clearBtn.addEventListener('click', clear);
+    if (currentLang === 'ru') {
+      dom.btnEncrypt.textContent = 'зашифровать';
+      dom.btnDecrypt.textContent = 'расшифровать';
+      dom.btnCopy.textContent = 'копировать';
+      dom.btnClear.textContent = 'очистить';
+    } else {
+      dom.btnEncrypt.textContent = 'encrypt';
+      dom.btnDecrypt.textContent = 'decrypt';
+      dom.btnCopy.textContent = 'copy';
+      dom.btnClear.textContent = 'clear';
+    }
+  }
+
+  dom.btnEncrypt.addEventListener('click', encrypt);
+  dom.btnDecrypt.addEventListener('click', decrypt);
+  dom.btnCopy.addEventListener('click', copy);
+  dom.btnClear.addEventListener('click', clear);
+  dom.btnLang.addEventListener('click', changeLang);
 
   dom.input.value = `Hello!\n   This is very simple way to encrypt your conversation with someone. All you need is just paste your message here and press "encrypt" button, then "copy" button and then send result to your interlocutor, who in it's turn goes here and decrypts the message.\n   The key thing here is that nobody knows this site, so there is practically no chances that your messages will be decrypted.\n   I understand that it's very far from a robust strategy, but it is what it is)\n   Good luck!`;
   notify('qq)');

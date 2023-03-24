@@ -11,6 +11,7 @@
 :root {
     --border-radius: 5px;
     --accent-color: #00afb2;
+    --white-transparent: #fff4;
 }
 
 * {
@@ -66,7 +67,7 @@ body {
 }
 
 .link {
-    padding: 10px;
+    padding: 8px;
     font-size: 1rem;
     color: #fff;
     text-decoration: none;
@@ -74,10 +75,10 @@ body {
     transition: background-color 150ms;
 }
 .link:hover  {
-    background-color: #fff4;
+    background-color: var(--white-transparent);
 }
 
 .icon {
-    width: 1rem;
+    width: 22px;
 }
 
