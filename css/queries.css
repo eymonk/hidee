@@ -1,0 +1,18 @@
+@media screen and (max-width: 700px) {
+    .encryptor__input {
+        height: 16rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .encryptor__input {
+        height: 20rem;
+    }
+    .encryptor__button-wrapper {
+        width: 100%;
+    }
+    .encryptor__button {
+        width: 40%;
+    }
+}
+
