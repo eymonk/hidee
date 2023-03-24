@@ -47,7 +47,7 @@ body {
     color: #fff;
 }
 
-.button {
+.btn {
     font-weight: bold;
     padding: .5em 1.5em;
 
@@ -60,7 +60,7 @@ body {
     color: #fff;
     transition: transform 150ms;
 }
-.button:hover {
+.btn:hover {
     transform: translateY(2px);
     border-bottom-width: 1px;
 }

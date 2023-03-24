@@ -4,10 +4,10 @@
   const dom = {
     input: document.querySelector('.encryptor__input'),
     notification: document.querySelector('.encryptor__notification'),
-    encryptBtn: document.querySelector('.encryptor__button_encrypt'),
-    decryptBtn: document.querySelector('.encryptor__button_decrypt'),
-    copyBtn: document.querySelector('.encryptor__button_copy'),
-    clearBtn: document.querySelector('.encryptor__button_clear'),
+    encryptBtn: document.querySelector('.encryptor__btn_encrypt'),
+    decryptBtn: document.querySelector('.encryptor__btn_decrypt'),
+    copyBtn: document.querySelector('.encryptor__btn_copy'),
+    clearBtn: document.querySelector('.encryptor__btn_clear'),
   };
 
 

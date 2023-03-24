@@ -1,10 +1,16 @@
 .footer{
-    font-size: .5rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
 
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
+.footer__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__btn {
+    margin: 10px;
 }

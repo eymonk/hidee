@@ -15,7 +15,7 @@
     color: transparent;
 }
 
-.encryptor__button-main-wrapper {
+.encryptor__btn-main-wrapper {
     padding: 1rem 0;
 
     display: flex;
@@ -24,7 +24,7 @@
     align-items: center;
     gap: 1rem;
 }
-.encryptor__button-wrapper {
+.encryptor__btn-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
