@@ -2,17 +2,29 @@
     .encryptor__input {
         height: 16rem;
     }
+    .encryptor__btn-wrapper {
+        width: 100%;
+    }
+    .encryptor__btn {
+        width: 42%;
+    }
 }
 
 @media screen and (max-width: 500px) {
     .encryptor__input {
         height: 20rem;
     }
-    .encryptor__button-wrapper {
-        width: 100%;
+}
+
+@media screen and (max-width: 400px) {
+    .btn.encryptor__btn {
+        width: 80%;
+        transition: border-color 100ms;
     }
-    .encryptor__btn {
-        width: 40%;
+    .btn.encryptor__btn:hover{
+        transform: translateY(0);
+        border-color: #eee;
+        border-width: 3px;
     }
 }
 

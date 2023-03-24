@@ -149,7 +149,7 @@
       dom.btnDecrypt.textContent = 'decrypt';
       dom.btnCopy.textContent = 'copy';
       dom.btnClear.textContent = 'clear';
-      dom.headerMotto.textContent = 'whisper loudly';
+      dom.headerMotto.textContent = 'loud whisper';
       dom.btnLang.dataset.lang = 'en';
       localStorage.setItem('lang', 'en');
     } else {
@@ -157,12 +157,11 @@
       dom.btnDecrypt.textContent = 'расшифровать';
       dom.btnCopy.textContent = 'копировать';
       dom.btnClear.textContent = 'очистить';
-      dom.headerMotto.textContent = 'шептать громко';
+      dom.headerMotto.textContent = 'громкий шёпот';
       dom.btnLang.dataset.lang = 'ru';
       localStorage.setItem('lang', 'ru');
     }
-
-    if (dom.input.textContent === userMessages.en || dom.input.textContent === userMessages.ru) dom.input.textContent = userMessages[lang];
+    if (dom.input.value === userMessages.en || dom.input.value === userMessages.ru) dom.input.value = userMessages[lang];
   }
 
   dom.btnEncrypt.addEventListener('click', encrypt);
@@ -178,5 +177,5 @@
   if (lang) {
     setLang(lang);
     dom.input.value = userMessages[lang];
-  };
+  } else dom.input.value = userMessages['en'];
 }());
