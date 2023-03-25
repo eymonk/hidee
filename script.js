@@ -39,7 +39,6 @@
     navigator.clipboard.writeText(text)
         .then(() => {
           const message = localStorage.getItem('lang') === 'en' ? 'copied' : 'скопировано';
-          dom.input.focus();
           notify(message);
         })
         .catch(err => { if(err) notify(`couldn't copy, sorry...`) });
@@ -49,7 +48,6 @@
   function clear() {
     const message = localStorage.getItem('lang') === 'en' ? 'cleared' : 'очищено';
     dom.input.value = '';
-    dom.input.focus();
     notify(message);
   }
 
