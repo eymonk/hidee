@@ -1,4 +1,10 @@
 # hidee
-Decrypted channel of communication for you and your friend. tss...
+Hello :-) <br>
+This is decrypted channel of communication for you and your friend. tss...
 
-link: [dakochkin.ru/hidee](https://dakochkin.ru/hidee)
+## Link
+[dakochkin.ru/hidee](https://dakochkin.ru/hidee)
+
+## Contacts 
+Telegram:[@jaysun0](https://t.me/jaysun0)<br>
+CV: [web-page](https://jaysuno0.github.io/rsschool-cv/)
